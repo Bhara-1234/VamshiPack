@@ -1,0 +1,45 @@
+CREATE TABLE InsurancePackageCategories (
+    ipcc_id serial PRIMARY KEY,
+    ipcc_title varchar(60) NOT NULL,
+    ipcc_desc varchar(500),
+    ipcc_status char(2)
+);
+
+drop table InsurancePackage
+
+select * from insurancepackages
+-- Insert records into InsurancePackageCategories
+INSERT INTO InsurancePackageCategories (ipcc_title, ipcc_desc, ipcc_status)
+VALUES
+    ('Room Rent', 'Coverage for room rent charges', 'AC'),
+    ('Doctor Consultation Charges', 'Coverage for doctor consultation fees', 'AC'),
+    ('Pharmacy', 'Coverage for pharmacy expenses', 'AC'),
+    ('Surgery', 'Coverage for surgical procedures', 'AC'),
+    ('Lab Tests', 'Coverage for laboratory tests', 'AC'),
+    ('Hospitalization', 'Coverage for hospitalization expenses', 'AC'),
+    ('Emergency Care', 'Coverage for emergency medical care', 'NA'),
+    ('Ambulance Services', 'Coverage for ambulance services', 'NA'),
+    ('Mental Health Services', 'Coverage for mental health services', 'NA'),
+    ('Dental Services', 'Coverage for dental services', 'NA');
+
+
+
+CREATE TABLE InsurancePackageCoveragecategories (
+    insp_id int,
+    ipcc_id int,
+    PRIMARY KEY (insp_id, ipcc_id),
+    FOREIGN KEY (insp_id) REFERENCES insurancepackages(insp_id),
+    FOREIGN KEY (ipcc_id) REFERENCES InsurancePackageCategories(ipcc_id)
+);
+
+-- Insert records into InsurancePackageCoverage with random insp_id and ipcc_id values
+INSERT INTO InsurancePackageCoveragecategories (insp_id, ipcc_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 8);
