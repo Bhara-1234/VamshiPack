@@ -90,6 +90,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>Package Id</th>
 					<th>Category Id</th>
 					<th>Title</th>
 					<th>Description</th>
@@ -100,6 +101,7 @@
 			<tbody>
 				<!-- Disease data loop -->
 				<tr th:each="category : ${categories}">
+					<td th:text="${inspId}"></td>
 					<td th:text="${category.categoryId}"></td>
 					<td th:text="${category.categoryTitle}"></td>
 					<td th:text="${category.categoryDescription}"></td>

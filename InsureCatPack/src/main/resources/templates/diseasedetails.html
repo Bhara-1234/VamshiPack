@@ -92,7 +92,8 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>ID</th>
+					<th>PackageId</th>
+					<th>DiseaseID</th>
 					<th>Name</th>
 					<th>ICD Code</th>
 					<th>Description</th>
@@ -103,6 +104,7 @@
 			<tbody>
 				<!-- Disease data loop -->
 				<tr th:each="disease : ${diseases}">
+					<td th:text="${inspId}"></td>
 					<td th:text="${disease.diseaseId}"></td>
 					<td th:text="${disease.diseaseName}"></td>
 					<td th:text="${disease.icdCode}"></td>
